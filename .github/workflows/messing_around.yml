@@ -28,3 +28,15 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a one-line script
         run: ls -asltr
+
+      - name: Check some tools
+        run: |
+          zip -v
+          unzip -v
+          gzip -v
+          gunzip -v
+          which zip
+          which unzip
+          which gzip
+          which gunzip
+          
