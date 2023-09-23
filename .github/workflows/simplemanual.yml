@@ -69,10 +69,13 @@ jobs:
       - name: list contents
         run: |
           ls -asltr
+          ls Openjdk11u-dcevm-windows-x64/
           ls Openjdk11u-dcevm-windows-x64/bin
           ls Openjdk11u-dcevm-windows-x64/bin/server
+          ls OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1/
           ls OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1/bin
           ls OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1/bin/server
+          ls OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1/
           ls OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1/bin
           ls OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1/bin/server
           
