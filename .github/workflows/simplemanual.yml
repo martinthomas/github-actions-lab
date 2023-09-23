@@ -47,15 +47,15 @@ jobs:
       - name: wget dcevm
         uses: wei/wget@v1
         with:
-          args: -O Openjdk11u-dcevm-windows-x64.zip https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.15%2B1/Openjdk11u-dcevm-windows-x64.zip
+          args: https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.15+1/Openjdk11u-dcevm-windows-x64.zip
       - name: wget openjdk
         uses: wei/wget@v1
         with:
-          args: -O OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1.zip https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.20.1%2B1/OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1.zip
+          args: https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.20.1+1/OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1.zip
       - name: wget openjre
         uses: wei/wget@v1
         with:
-          args: -O OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1.zip https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.20.1%2B1/OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1.zip          
+          args: https://github.com/adoptium/temurin11-binaries/releases/download/jdk-11.0.20.1+1/OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1.zip          
       - name: ls
         run: |
           ls -asltr
@@ -70,16 +70,8 @@ jobs:
         run: |
           ls -asltr
           echo "dcevm-11.0.15+1" && ls -asl dcevm-11.0.15+1
-          echo "dcevm-11.0.15+1/bin" && ls -asl dcevm-11.0.15+1/bin
-          echo "dcevm-11.0.15+1/bin/server" && ls -asl dcevm-11.0.15+1/bin/server
           echo "jdk-11.0.20.1+1/" && ls -asl jdk-11.0.20.1+1/
-          echo "jdk-11.0.20.1+1/bin" && ls -asl jdk-11.0.20.1+1/bin
-          echo "jdk-11.0.20.1+1/bin/server" && ls -asl jdk-11.0.20.1+1/bin/server
-          echo "jdk-11.0.20.1+1/lib/modules" && ls -asl jdk-11.0.20.1+1/lib/modules
           echo "jdk-11.0.20.1+1-jre" && ls -asl jdk-11.0.20.1+1-jre/
-          echo "jdk-11.0.20.1+1-jre/bin" && ls -asl jdk-11.0.20.1+1-jre/bin
-          echo "jdk-11.0.20.1+1-jre/bin/server" && ls -asl jdk-11.0.20.1+1-jre/bin/server
-          echo "jdk-11.0.20.1+1-jre/lib/modules" && ls -asl jdk-11.0.20.1+1-jre/lib/modules
           
       - name: Copy files
         run: |
@@ -97,4 +89,17 @@ jobs:
           path: windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip
           retention-days: 90
           
+      - name: setup git config
+        run: |
+          # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+
+      - name: commit
+        run: |
+          # Stage the file, commit and push
+          git add windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip
+          git commit -m "New DCEVM build"
+          git push origin master
+      
           
