@@ -27,9 +27,7 @@ on:
         # The data type of the input
         type: string
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "greet"
   confirm:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -69,21 +67,32 @@ jobs:
       - name: list contents
         run: |
           ls -asltr
-          ls dcevm-11.0.15+1
-          ls dcevm-11.0.15+1/bin
-          ls dcevm-11.0.15+1/bin/server
-          ls jdk-11.0.20.1+1-jre/
-          ls jdk-11.0.20.1+1-jre/bin
-          ls jdk-11.0.20.1+1-jre/bin/server
-          ls jdk-11.0.20.1+1/
-          ls jdk-11.0.20.1+1/bin
-          ls jdk-11.0.20.1+1/bin/server
+          echo "dcevm-11.0.15+1" && ls -asl dcevm-11.0.15+1
+          echo "dcevm-11.0.15+1/bin" && ls -asl dcevm-11.0.15+1/bin
+          echo "dcevm-11.0.15+1/bin/server" && ls -asl dcevm-11.0.15+1/bin/server
+          echo "jdk-11.0.20.1+1/" && ls -asl jdk-11.0.20.1+1/
+          echo "jdk-11.0.20.1+1/bin" && ls -asl jdk-11.0.20.1+1/bin
+          echo "jdk-11.0.20.1+1/bin/server" && ls -asl jdk-11.0.20.1+1/bin/server
+          echo "jdk-11.0.20.1+1/lib/modules" && ls -asl jdk-11.0.20.1+1/lib/modules
+          echo "jdk-11.0.20.1+1-jre" && ls -asl jdk-11.0.20.1+1-jre/
+          echo "jdk-11.0.20.1+1-jre/bin" && ls -asl jdk-11.0.20.1+1-jre/bin
+          echo "jdk-11.0.20.1+1-jre/bin/server" && ls -asl jdk-11.0.20.1+1-jre/bin/server
+          echo "jdk-11.0.20.1+1-jre/lib/modules" && ls -asl jdk-11.0.20.1+1-jre/lib/modules
           
       - name: Copy
         run: |
           # Copy {TravaJDK Directory}/bin/server/jvm.dll to {JRE Directory}/bin/server/jvm.dll
           cp dcevm-11.0.15+1/bin/server/jvm.dll jdk-11.0.20.1+1-jre/bin/server/jvm.dll
           # Copy {AdoptOpenJDK Directory}/lib/modules to {JRE Directory}/lib/modules
-          cp jdk-11.0.20.1+1/lib/modules/*  jdk-11.0.20.1+1-jre/lib/
+          cp jdk-11.0.20.1+1/lib/modules/  jdk-11.0.20.1+1-jre/lib/modules
+
+  endpiece: # One job to the next no artifacts shared
+    runs-on: ubuntu-latest
+    steps:
+      - name: Determine env
+        run: |
+          ls -als
+          pwd
+          
           
           
