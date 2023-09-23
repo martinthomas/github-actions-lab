@@ -87,13 +87,14 @@ jobs:
           cp dcevm-11.0.15+1/bin/server/jvm.dll jdk-11.0.20.1+1-jre/bin/server/jvm.dll
           # Copy {AdoptOpenJDK Directory}/lib/modules to {JRE Directory}/lib/modules
           cp jdk-11.0.20.1+1/lib/modules  jdk-11.0.20.1+1-jre/lib/modules
-          zip jdk-11.0.20.1+1-jre-dcevm.zip jdk-11.0.20.1+1-jre
+          mkdir windows-x64
+          zip windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip jdk-11.0.20.1+1-jre
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3.1.3
         with:    # Artifact name
           name: jdk-11.0.20.1+1-jre-dcevm.zip
-          path: windows-x64
+          path: windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip
           retention-days: 90
           
           
