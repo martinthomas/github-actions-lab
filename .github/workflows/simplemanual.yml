@@ -88,7 +88,11 @@ jobs:
           name: jdk-11.0.20.1+1-jre-dcevm.zip
           path: windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip
           retention-days: 90
-          
+
+        # Checkout the branch
+      - name: checkout
+        uses: actions/checkout@v2
+
       - name: setup git config
         run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
@@ -98,7 +102,7 @@ jobs:
       - name: commit
         run: |
           # Stage the file, commit and push
-          git add windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip
+          git add windows-x64
           git commit -m "New DCEVM build"
           git push origin master
       
