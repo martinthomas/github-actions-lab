@@ -49,5 +49,7 @@ jobs:
         run: |
           ls -asltr
           unzip Openjdk11u-dcevm-windows-x64.zip
-          ls -asltr Openjdk11u-dcevm-windows-x64.zip
+          unzip OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1.zip
+          unzip OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1.zip
+          ls -asltr
 
