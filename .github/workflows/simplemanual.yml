@@ -63,27 +63,27 @@ jobs:
           ls -asltr
       - name: unzip all
         run: |
-          unzip Openjdk11u-dcevm-windows-x64.zip -d Openjdk11u-dcevm-windows-x64
-          unzip OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1.zip -d OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1
-          unzip OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1.zip -d OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1
+          unzip Openjdk11u-dcevm-windows-x64.zip
+          unzip OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1.zip
+          unzip OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1.zip
       - name: list contents
         run: |
           ls -asltr
-          ls Openjdk11u-dcevm-windows-x64/
-          ls Openjdk11u-dcevm-windows-x64/bin
-          ls Openjdk11u-dcevm-windows-x64/bin/server
-          ls OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1/
-          ls OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1/bin
-          ls OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1/bin/server
-          ls OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1/
-          ls OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1/bin
-          ls OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1/bin/server
+          ls dcevm-11.0.15+1
+          ls dcevm-11.0.15+1/bin
+          ls dcevm-11.0.15+1/bin/server
+          ls jdk-11.0.20.1+1-jre/
+          ls jdk-11.0.20.1+1-jre/bin
+          ls jdk-11.0.20.1+1-jre/bin/server
+          ls jdk-11.0.20.1+1/
+          ls jdk-11.0.20.1+1/bin
+          ls jdk-11.0.20.1+1/bin/server
           
       - name: Copy
         run: |
           # Copy {TravaJDK Directory}/bin/server/jvm.dll to {JRE Directory}/bin/server/jvm.dll
-          cp Openjdk11u-dcevm-windows-x64/bin/server/jvm.dll OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1/bin/server/jvm.dll
+          cp dcevm-11.0.15+1/bin/server/jvm.dll jdk-11.0.20.1+1-jre/bin/server/jvm.dll
           # Copy {AdoptOpenJDK Directory}/lib/modules to {JRE Directory}/lib/modules
-          cp OpenJDK11U-jdk_x64_windows_hotspot_11.0.20.1_1/lib/modules/*  OpenJDK11U-jre_x64_windows_hotspot_11.0.20.1_1/lib/
+          cp jdk-11.0.20.1+1/lib/modules/*  jdk-11.0.20.1+1-jre/lib/
           
           
