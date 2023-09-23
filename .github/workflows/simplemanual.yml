@@ -79,20 +79,12 @@ jobs:
           echo "jdk-11.0.20.1+1-jre/bin/server" && ls -asl jdk-11.0.20.1+1-jre/bin/server
           echo "jdk-11.0.20.1+1-jre/lib/modules" && ls -asl jdk-11.0.20.1+1-jre/lib/modules
           
-      - name: Copy
+      - name: Copy files
         run: |
           # Copy {TravaJDK Directory}/bin/server/jvm.dll to {JRE Directory}/bin/server/jvm.dll
           cp dcevm-11.0.15+1/bin/server/jvm.dll jdk-11.0.20.1+1-jre/bin/server/jvm.dll
           # Copy {AdoptOpenJDK Directory}/lib/modules to {JRE Directory}/lib/modules
-          cp jdk-11.0.20.1+1/lib/modules/  jdk-11.0.20.1+1-jre/lib/modules
+          cp jdk-11.0.20.1+1/lib/modules  jdk-11.0.20.1+1-jre/lib/modules
 
-  endpiece: # One job to the next no artifacts shared
-    runs-on: ubuntu-latest
-    steps:
-      - name: Determine env
-        run: |
-          ls -als
-          pwd
-          
           
           
