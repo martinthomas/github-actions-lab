@@ -36,4 +36,6 @@ jobs:
       - name: wget
         uses: wei/wget@v1
         with:
-          args: -qO- https://httpbin.org/get
+          args: -qO- https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.15%2B1/Openjdk11u-dcevm-windows-x64.zip
+        run: |
+          ls -asltr
