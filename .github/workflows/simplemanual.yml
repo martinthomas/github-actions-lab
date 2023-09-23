@@ -38,4 +38,8 @@ jobs:
         with:
           args: -O Openjdk11u-dcevm-windows-x64.zip https://github.com/TravaOpenJDK/trava-jdk-11-dcevm/releases/download/dcevm-11.0.15%2B1/Openjdk11u-dcevm-windows-x64.zip
       - name: ls
-        run: ls -asltr
+        run: |
+          ls -asltr
+          unzip Openjdk11u-dcevm-windows-x64.zip
+          ls -asltr Openjdk11u-dcevm-windows-x64.zip
+
