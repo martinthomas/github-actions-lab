@@ -33,8 +33,6 @@ jobs:
         run: |
           zip -v
           unzip -v
-          gzip -v
-          gunzip -v
           which zip
           which unzip
           which gzip
