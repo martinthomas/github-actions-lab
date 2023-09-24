@@ -116,6 +116,7 @@ jobs:
 
       - name: commit
         run: |
+          rm -fr dcevm jdk jre
           # Stage the file, commit and push
           ls 
           ls windows-x64/*
