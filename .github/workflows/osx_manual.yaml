@@ -85,10 +85,10 @@ jobs:
           
       - name: Copy files
         run: |
-          # Copy {TravaJDK Directory}/bin/server/jvm.dll to {JRE Directory}/bin/server/jvm.dll
-          cp dcevm/*/bin/server/jvm.dll jre/*/bin/server/jvm.dll
-          # Copy {AdoptOpenJDK Directory}/lib/modules to {JRE Directory}/lib/modules
-          cp jdk/*/lib/modules  jre/*/lib/modules
+          # Copy {TravaJDK Directory}/Contents/Home/lib/server/libjvm.dylib to {JRE Directory}/Contents/Home/lib/server/libjvm.dylib
+          cp dcevm/*/Contents/Home/lib/server/libjvm.dylib jre/*/Contents/Home/lib/server/libjvm.dylib
+          # Copy {AdoptOpenJDK Directory}/Contents/Home/lib/modules to {JRE Directory}/Contents/Home/lib/modules
+          cp jdk/*/Contents/Home/lib/modules  jre/*/Contents/Home/lib/modules
           echo "ls -asl " && ls -asl
           mkdir -p osx
           cd jre && tar -cvf ../osx/${{ inputs.outputname }} *
