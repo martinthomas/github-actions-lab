@@ -6,7 +6,7 @@ on:
     inputs:
       outputname:
         description: 'Output filename'
-        default: 'openjdk_jre_dcevm.zip'
+        default: 'openjdk_jre_dcevm.tar.gz'
         required: false
         type: string
       jdk:
@@ -96,7 +96,7 @@ jobs:
       - name: Commit message
         run: |
           pwd
-          echo "New DCEVM tar.gz built from:" > info.txt
+          echo "New DCEVM tar.gz for OSX built from:" > info.txt
           echo "JRE ${{ inputs.jre }}" >> info.txt
           echo "JDK  ${{ inputs.jdk }}" >> info.txt
           echo "DCEVM ${{ inputs.dcevm }}" >> info.txt
@@ -126,7 +126,7 @@ jobs:
           rm -fr dcevm.tar.gz jdk.tar.gz jre.tar.gz
           # Stage the file, commit and push
           git add osx/${{ inputs.outputname }} 
-          git commit -m "New DCEVM build"
+          git commit -m "New DCEVM build for OSX"
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5          
