@@ -92,6 +92,7 @@ jobs:
           cp dcevm/*/bin/server/jvm.dll jre/*/bin/server/jvm.dll
           # Copy {AdoptOpenJDK Directory}/lib/modules to {JRE Directory}/lib/modules
           cp jdk/*/lib/modules  jre/*/lib/modules
+          echo "ls -asl " && ls -asl
           mkdir windows-x64
           zip -r windows-x64/${{ inputs.outputname }} jre/*
 
