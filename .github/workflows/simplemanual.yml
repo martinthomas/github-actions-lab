@@ -6,7 +6,7 @@ on:
     inputs:
       outputname:
         description: 'Output filename'
-        default: 'dcevm.zip'
+        default: 'openjdk_jre_dcevm.zip'
         required: false
         type: string
       jdk:
