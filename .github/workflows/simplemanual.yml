@@ -99,7 +99,7 @@ jobs:
           # Copy {AdoptOpenJDK Directory}/lib/modules to {JRE Directory}/lib/modules
           cp jdk/*/lib/modules  jre/*/lib/modules
           mkdir windows-x64
-          zip -r windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip jdk-11.0.20.1+1-jre
+          zip -r windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip jre/*
 
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3.1.3
