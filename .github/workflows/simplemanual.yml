@@ -63,17 +63,17 @@ jobs:
       - name: wget dcevm
         uses: wei/wget@v1
         with:
-          args: -O dcevm ${{ inputs.dcevm }}
+          args: -O dcevm.zip ${{ inputs.dcevm }}
           
       - name: wget openjdk
         uses: wei/wget@v1
         with:
-          args: -O jdk ${{ inputs.jdk }}
+          args: -O jdk.zip ${{ inputs.jdk }}
           
       - name: wget openjre
         uses: wei/wget@v1
         with:
-          args: -O jre ${{ inputs.jre }}          
+          args: -O jre.zip ${{ inputs.jre }}          
   
       - name: ls
         run: |
@@ -81,9 +81,9 @@ jobs:
           
       - name: unzip all
         run: |
-          cd dcevm && unzip *.zip
-          cd - && cd jdk && unzip *.zip
-          cd - && cd jre && unzip *.zip
+          unzip dcevm.zip
+          unzip jdk.zip
+          unzip jre.zip
           
       - name: list contents
         run: |
