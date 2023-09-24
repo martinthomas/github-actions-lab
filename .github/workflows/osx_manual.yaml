@@ -73,8 +73,8 @@ jobs:
       - name: extract from tar
         run: |
           mkdir dcevm && tar -C dcevm -xvf dcevm.tar.gz
-          mdkir jdk && tar -C jdk -xvf jdk.tar.gz
-          mdkir jre && tar -C jre -xvf jre.tar.gz
+          mkdir jdk && tar -C jdk -xvf jdk.tar.gz
+          mkdir jre && tar -C jre -xvf jre.tar.gz
           
       - name: list contents
         run: |
