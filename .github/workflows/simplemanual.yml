@@ -94,11 +94,11 @@ jobs:
           
       - name: Commit message
         run: |
-          echo "New DCEVM zipfile built from:\n" > info.txt
-          echo "JRE ${{ inputs.jre }}\n" >> info.txt
-          echo "JDK  ${{ inputs.jdk }}\n" >> info.txt
-          echo "DCEVM ${{ inputs.dcevm }}\n" >> info.txt
-          echo "Output ${{ inputs.outputname }}\n" >> info.txt
+          echo "New DCEVM zipfile built from:" > info.txt
+          echo "JRE ${{ inputs.jre }}" >> info.txt
+          echo "JDK  ${{ inputs.jdk }}" >> info.txt
+          echo "DCEVM ${{ inputs.dcevm }}" >> info.txt
+          echo "Output ${{ inputs.outputname }}" >> info.txt
           
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3.1.3
