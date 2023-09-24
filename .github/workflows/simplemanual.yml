@@ -104,10 +104,14 @@ jobs:
         uses: actions/upload-artifact@v3.1.3
         with:    # Artifact name
           name: ${{ inputs.outputname }} 
-          path: |
-            windows-x64/${{ inputs.outputname }}
-            info.txt
-
+          path: windows-x64/${{ inputs.outputname }}
+        
+      - name: Upload Build info
+        uses: actions/upload-artifact@v3.1.3
+        with:
+          name: info.txt
+          path: info.txt
+    
       - name: setup git config
         run: |
           # setup the username and email. I tend to use 'GitHub Actions Bot' with no email by default
