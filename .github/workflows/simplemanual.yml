@@ -121,6 +121,6 @@ jobs:
           ls windows-x64/*
           git add windows-x64/*
           git commit -m "New DCEVM build"
-          git push origin master
+          git push origin main
       
           
