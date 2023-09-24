@@ -81,9 +81,9 @@ jobs:
           
       - name: unzip all
         run: |
-          unzip dcevm.zip
-          unzip jdk.zip
-          unzip jre.zip
+          unzip -q dcevm.zip -d dcevm
+          unzip -q jdk.zip -d jdk
+          unzip -q jre.zip -d jre
           
       - name: list contents
         run: |
