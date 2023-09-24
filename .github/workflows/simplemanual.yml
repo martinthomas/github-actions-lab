@@ -45,6 +45,7 @@ jobs:
         echo "Using ${{ inputs.jre }}"
         echo "Using ${{ inputs.jdk }}"
         echo "Using ${{ inputs.dcevm }}"
+        echo "Using ${{ inputs }}"
         env
       
   get-zipfiles:
