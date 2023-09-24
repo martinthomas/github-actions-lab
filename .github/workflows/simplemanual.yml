@@ -91,13 +91,22 @@ jobs:
           echo "ls -asl " && ls -asl
           mkdir -p windows-x64
           zip -r windows-x64/${{ inputs.outputname }} jre/*
-
+          
+      - name: Commit message
+        run: |
+          echo "New DCEVM zipfile built from:\n" > info.txt
+          echo "JRE ${{ inputs.jre }}\n" >> info.txt
+          echo "JDK  ${{ inputs.jdk }}\n" >> info.txt
+          echo "DCEVM ${{ inputs.dcevm }}\n" >> info.txt
+          echo "Output ${{ inputs.outputname }}\n" >> info.txt
+          
       - name: Upload Build Artifact
         uses: actions/upload-artifact@v3.1.3
         with:    # Artifact name
           name: ${{ inputs.outputname }} 
-          path: windows-x64/${{ inputs.outputname }}
-          retention-days: 90
+          path: |
+            windows-x64/${{ inputs.outputname }}
+            info.txt
 
       - name: setup git config
         run: |
@@ -113,20 +122,10 @@ jobs:
           git add windows-x64/${{ inputs.outputname }} 
           git commit -m "New DCEVM build"
       
-      - name: Commit message
-        run: |
-          echo "New DCEVM zipfile built from:" > commit.txt
-          echo "JRE ${{ inputs.jre }}" >> commit.txt
-          echo "JDK  ${{ inputs.jdk }}" >> commit.txt
-          echo "DCEVM ${{ inputs.dcevm }}" >> commit.txt
-          echo "Output ${{ inputs.outputname }}" >> commit.txt
-          
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5          
         with:
           add-paths: | # specifically add this zip file
             windows-x64/${{ inputs.outputname }}
-          body-path: commit.txt
-
+          body-path: info.txt 
           
-        
