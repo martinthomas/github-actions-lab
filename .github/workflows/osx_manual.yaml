@@ -133,5 +133,6 @@ jobs:
         with:
           add-paths: | # specifically add this zip file
             osx/${{ inputs.outputname }}
-          body-path: info.txt 
+          body-path: info.txt
+          title: New DCEVM build for OSX
           

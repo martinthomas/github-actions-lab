@@ -124,7 +124,7 @@ jobs:
           rm -fr dcevm.zip jdk.zip jre.zip
           # Stage the file, commit and push
           git add windows-x64/${{ inputs.outputname }} 
-          git commit -m "New DCEVM build"
+          git commit -m "New DCEVM build for Windows-x64"
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5          
@@ -132,4 +132,6 @@ jobs:
           add-paths: | # specifically add this zip file
             windows-x64/${{ inputs.outputname }}
           body-path: info.txt 
+          title: New DCEVM build for Windows-x64
+
           
