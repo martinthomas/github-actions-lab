@@ -117,6 +117,7 @@ jobs:
       - name: commit
         run: |
           rm -fr dcevm jdk jre
+          rm -fr dcevm.zip jdk.zip jre.zip
           # Stage the file, commit and push
           ls 
           ls windows-x64/*
