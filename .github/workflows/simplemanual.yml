@@ -1,9 +1,5 @@
-# This is a basic workflow that is manually triggered
+name: Build DCEVM version of OpenJDK JRE for Windows-x64
 
-name: Manual workflow to build DCEVM version of OpenJDK JRE for Windows
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
     # Inputs the workflow accepts.
@@ -45,8 +41,7 @@ jobs:
         echo "Using ${{ inputs.jre }}"
         echo "Using ${{ inputs.jdk }}"
         echo "Using ${{ inputs.dcevm }}"
-        echo "Using ${{ inputs }}"
-        env
+        echo "Using ${{ inputs.outputname }}"
       
   get-zipfiles:
     runs-on: ubuntu-latest
@@ -118,8 +113,20 @@ jobs:
           git add windows-x64/${{ inputs.outputname }} 
           git commit -m "New DCEVM build"
       
+      - name: Commit message
+        run: |
+          echo "New DCEVM zipfile built from:" > commit.txt
+          echo "JRE ${{ inputs.jre }}" >> commit.txt
+          echo "JDK  ${{ inputs.jdk }}" >> commit.txt
+          echo "DCEVM ${{ inputs.dcevm }}" >> commit.txt
+          echo "Output ${{ inputs.outputname }}" >> commit.txt
+          
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5          
         with:
           add-paths: | # specifically add this zip file
-            windows-x64/${{ inputs.outputname }} 
+            windows-x64/${{ inputs.outputname }}
+          body-path: commit.txt
+
+          
+        
