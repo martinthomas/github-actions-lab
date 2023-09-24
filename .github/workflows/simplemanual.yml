@@ -96,7 +96,7 @@ jobs:
         uses: actions/upload-artifact@v3.1.3
         with:    # Artifact name
           name: ${{ inputs.outputname }} 
-          path: windows-x64/
+          path: windows-x64/${{ inputs.outputname }}
           retention-days: 90
 
       - name: setup git config
