@@ -91,7 +91,7 @@ jobs:
           cp jdk/*/Contents/Home/lib/modules  jre/*/Contents/Home/lib/modules
           echo "ls -asl " && ls -asl
           mkdir -p osx
-          cd jre && tar -cvf ../osx/${{ inputs.outputname }} *
+          cd jre && tar -zcvf ../osx/${{ inputs.outputname }} *
           
       - name: Commit message
         run: |
