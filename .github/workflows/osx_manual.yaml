@@ -124,10 +124,6 @@ jobs:
         run: |
           rm -fr dcevm jdk jre
           rm -fr dcevm.tar.gz jdk.tar.gz jre.tar.gz
-          ls -asl 
-          ls -asl osx
-          ls -asl jre
-          du -as jre osx
           # Stage the file, commit and push
           git add osx/${{ inputs.outputname }} 
           git commit -m "New DCEVM build for OSX"
