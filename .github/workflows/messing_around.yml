@@ -1,6 +1,6 @@
 # This is a basic workflow to help you get started with Actions
 
-name: Messing around
+name: Messing around and checking tools
 
 # Controls when the workflow will run
 on:
@@ -35,6 +35,7 @@ jobs:
           unzip -v
           which zip
           which unzip
+          which tar
           which gzip
           which gunzip
           
