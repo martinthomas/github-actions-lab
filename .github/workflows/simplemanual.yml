@@ -126,3 +126,6 @@ jobs:
       
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@v5          
+        with:
+          add-paths: | # specifically add this zip file
+            windows-x64/jdk-11.0.20.1+1-jre-dcevm.zip
